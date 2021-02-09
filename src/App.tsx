@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [color, setColor] = useState(time());
+  const [date, setDate] = useState(new Date());
 
   function pad(num: number, size: number) {
     return ("000000000" + num).substr(-size);
@@ -35,11 +36,11 @@ function App() {
 
   function makeString() {
     return (
-      pad(Math.floor(parseInt(color) / 10000), 2) +
+      date.getHours().toString() +
       ":" +
-      pad(Math.floor(parseInt(color) / 100) % 100, 2) +
+      pad(date.getMinutes(), 2) +
       ":" +
-      pad(parseInt(color) % 100, 2)
+      pad(date.getSeconds(), 2)
     );
   }
 
@@ -52,6 +53,7 @@ function App() {
 
     const interval = setTimeout(() => {
       setColor(newColor);
+      setDate(new Date());
     }, 993);
   }, [color]);
 
