@@ -50,9 +50,9 @@ function App() {
     num = nextTime(num);
     newColor = pad(num, 6);
 
-    const timeout = setTimeout(() => {
+    const interval = setTimeout(() => {
       setColor(newColor);
-    }, 1000);
+    }, 993);
   }, [color]);
 
   return (
