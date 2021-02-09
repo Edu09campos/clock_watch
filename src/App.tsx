@@ -12,7 +12,7 @@ function App() {
     const date = new Date();
     const currentTime =
       date.getHours().toString() +
-      date.getMinutes().toString() +
+      pad(date.getMinutes(), 2) +
       date.getSeconds().toString();
 
     let tempTime = parseInt(currentTime);
@@ -22,10 +22,10 @@ function App() {
   function nextTime(time: number) {
     if (time >= 235959) {
       time = 0;
-    } else if (time % 100 === 59) {
-      time += 41;
     } else if (time % 10000 === 5959) {
       time += 4041;
+    } else if (time % 100 === 59) {
+      time += 41;
     } else {
       time += 1;
     }
