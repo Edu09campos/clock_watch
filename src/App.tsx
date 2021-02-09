@@ -33,6 +33,16 @@ function App() {
     return time;
   }
 
+  function makeString() {
+    return (
+      pad(Math.floor(parseInt(color) / 10000), 2) +
+      ":" +
+      pad(Math.floor(parseInt(color) / 100) % 100, 2) +
+      ":" +
+      pad(parseInt(color) % 100, 2)
+    );
+  }
+
   useEffect(() => {
     let num = parseInt(color);
     let newColor = "";
@@ -47,7 +57,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: `#${color}` }}>
-      <h1>#{color}</h1>
+      <h1>#{makeString()}</h1>
     </div>
   );
 }
